@@ -18,8 +18,8 @@ export default function Header() {
           src={logo}
           width={140}
           height={140}
-          alt="logo"
           priority
+          alt="logo"
           className="dark:contrast-0"
         />
       </Link>
