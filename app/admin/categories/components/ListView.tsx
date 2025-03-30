@@ -27,7 +27,7 @@ export default function ListView() {
     );
 
   return (
-    <div className="flex flex-1 flex-col gap-3 rounded-xl px-3 md:w-[66%] md:px-5">
+    <div className="flex flex-1 flex-col gap-2 rounded-xl md:pr-10 md:pl-5">
       {isLoading ? (
         <div className="flex h-full w-full items-center justify-center">
           <AiOutlineLoading3Quarters size={50} className="animate-spin" />
@@ -40,12 +40,14 @@ export default function ListView() {
             <table className="min-w-full border-separate border-spacing-y-2 text-sm md:text-base">
               <thead>
                 <tr className="bg-white dark:bg-gray-800">
-                  <th className="rounded-l-lg border-l p-4 md:p-2">SN</th>
-                  <th className="p-4 whitespace-nowrap md:p-2">Image</th>
-                  <th className="p-4 text-left whitespace-nowrap md:p-2">
+                  <th className="rounded-l-lg border-l px-4 py-2 md:p-2">SN</th>
+                  <th className="px-4 py-2 whitespace-nowrap md:p-2">Image</th>
+                  <th className="px-4 py-2 text-left whitespace-nowrap md:p-2">
                     Name
                   </th>
-                  <th className="rounded-r-lg border-r p-4">Action</th>
+                  <th className="rounded-r-lg border-r px-4 py-2 md:p-2">
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -88,20 +90,20 @@ function Row({ item, index }: { item: Category; index: number }) {
 
   return (
     <tr key={item.id} className="bg-white text-center dark:bg-gray-800">
-      <td className="rounded-l-lg border-l p-4 md:p-2">{index + 1}</td>
-      <td className="p-4 md:p-2">
+      <td className="rounded-l-lg border-l px-4 py-2 md:p-2">{index + 1}</td>
+      <td className="px-4 py-2 md:p-2">
         <Image
           src={item.imageUrl}
           alt={item.name}
           width={40}
           height={40}
-          className="mx-auto h-10 w-10 rounded-md object-cover"
+          className="mx-auto h-8 w-8 rounded-md object-cover md:h-10 md:w-10"
         />
       </td>
-      <td className="max-w-[200px] truncate p-4 text-left whitespace-nowrap md:p-2">
+      <td className="max-w-[120px] truncate px-4 py-2 text-left whitespace-nowrap md:p-2">
         {item.name}
       </td>
-      <td className="rounded-r-lg border-r p-4 md:p-2">
+      <td className="rounded-r-lg border-r px-4 py-2 md:p-2">
         <div className="flex items-center justify-center gap-2">
           <Button
             variant="outline"

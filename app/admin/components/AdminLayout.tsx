@@ -24,6 +24,7 @@ export default function AdminLayout({
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target as Node)
       ) {
+        event.stopPropagation();
         setIsOpen(false);
       }
     }
@@ -45,6 +46,12 @@ export default function AdminLayout({
       </div>
 
       {/* 🔹 Sidebar Mobile */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-10 bg-black/40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
       <div
         ref={sidebarRef}
         className={`fixed z-10 transition-all duration-300 ease-in-out md:hidden ${isOpen ? "translate-x-0" : "-translate-x-[240px]"}`}
@@ -53,7 +60,7 @@ export default function AdminLayout({
       </div>
       <section className="flex min-h-screen flex-1 flex-col">
         <Header toggleSidebar={toggleSidebar} />
-        <section className="flex-1 bg-[#eff3f4] p-6 md:p-4 dark:bg-gray-700">
+        <section className="flex-1 bg-[#eff3f4] p-3 md:p-4 dark:bg-gray-700">
           {children}
         </section>
       </section>
