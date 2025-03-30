@@ -22,7 +22,7 @@ function AdminChecking({ children }: { children: React.ReactNode }) {
     if (!user && !isLoading) {
       const timeout = setTimeout(() => {
         router.push("/sign-in");
-      }, 800);
+      }, 300);
 
       return () => clearTimeout(timeout);
     }
